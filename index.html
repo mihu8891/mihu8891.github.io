@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Islamic Tools | Zakat Calculator & More</title>
+  <meta name="description" content="Free Islamic online tools including Zakat Calculator, Tasbeeh Counter and Prayer Time tools." />
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f7f9f8;color:#222}
+    header{background:#1b7f5a;color:#fff;padding:20px;text-align:center}
+    nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold}
+    .container{max-width:1000px;margin:auto;padding:20px}
+    .card{background:#fff;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,.08);padding:20px;margin-bottom:20px}
+    h2{color:#1b7f5a}
+    label{display:block;margin-top:10px;font-weight:bold}
+    input{width:100%;padding:8px;margin-top:5px}
+    button{background:#1b7f5a;color:#fff;border:none;padding:10px 15px;margin-top:15px;cursor:pointer}
+    footer{background:#eee;text-align:center;padding:15px;font-size:14px}
+  </style>
+</head>
+<body><header>
+  <h1>Islamic Tools</h1>
+  <nav>
+    <a href="#zakat">Zakat Calculator</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header><div class="container">  <div class="card" id="zakat">
+    <h2>Zakat Calculator</h2>
+    <p>Calculate your Zakat easily according to Islamic principles.</p><label>Cash in hand / bank</label>
+<input type="number" id="cash" />
+
+<label>Gold value</label>
+<input type="number" id="gold" />
+
+<label>Silver value</label>
+<input type="number" id="silver" />
+
+<label>Business assets</label>
+<input type="number" id="business" />
+
+<label>Liabilities / debts</label>
+<input type="number" id="debt" />
+
+<button onclick="calculateZakat()">Calculate Zakat</button>
+
+<h3 id="result"></h3>
+
+  </div>  <div class="card" id="about">
+    <h2>About Us</h2>
+    <p>Islamic Tools provides free and easy-to-use Islamic calculators and utilities to help Muslims fulfill their daily religious obligations accurately.</p>
+  </div>  <div class="card" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@yourdomain.com</p>
+  </div></div><footer>
+  <p>© 2026 Islamic Tools | Privacy Policy | Terms & Conditions</p>
+</footer><script>
+function calculateZakat() {
+  let cash = Number(document.getElementById('cash').value) || 0;
+  let gold = Number(document.getElementById('gold').value) || 0;
+  let silver = Number(document.getElementById('silver').value) || 0;
+  let business = Number(document.getElementById('business').value) || 0;
+  let debt = Number(document.getElementById('debt').value) || 0;
+
+  let total = cash + gold + silver + business - debt;
+  if (total <= 0) {
+    document.getElementById('result').innerText = 'No Zakat due.';
+    return;
+  }
+  let zakat = total * 0.025;
+  document.getElementById('result').innerText = 'Your Zakat is: Rs ' + zakat.toFixed(2);
+}
+</script></body>
+  </html>
