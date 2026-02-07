@@ -8,7 +8,7 @@ crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Islamic Tools – Quran, Hadith, Dua & Zakat</title>
-<meta name="description" content="Free Islamic tools including Quran with audio, Hadith Urdu, Daily Dua, Asma-ul-Husna, Zakat Calculator and Tasbeeh Counter.">
+<meta name="description" content="Free Islamic tools: Quran with audio, Hadith Urdu, Daily Dua, Asma ul Husna, Zakat Calculator and Tasbeeh Counter.">
 
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/6/6b/Islamic_symbol.svg">
 
@@ -24,12 +24,13 @@ h2{color:#0a6b4e}
 .dark h2{color:#7ad6b3}
 .arabic{font-size:26px;direction:rtl;line-height:1.8}
 button{background:#0a6b4e;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;margin:5px}
-input{width:100%;padding:8px;margin:5px 0}
+.copy{background:#555}
+.share a{display:inline-block;margin:4px;padding:6px 12px;background:#0a6b4e;color:#fff;border-radius:5px;text-decoration:none;font-size:14px}
 audio{width:100%;margin-top:10px}
 footer{background:#eee;padding:20px;text-align:center}
 .dark footer{background:#111}
 .toggle{position:fixed;bottom:15px;right:15px}
-.copy-btn{background:#555}
+input{width:100%;padding:8px;margin:5px 0}
 </style>
 </head>
 
@@ -37,7 +38,7 @@ footer{background:#eee;padding:20px;text-align:center}
 
 <header>
 <h1>Islamic Tools</h1>
-<p>Simple • Authentic • Reliable</p>
+<p>Simple • Authentic • Complete</p>
 <nav>
 <a href="#quran">Quran</a>
 <a href="#hadith">Hadith</a>
@@ -59,7 +60,15 @@ footer{background:#eee;padding:20px;text-align:center}
 <p id="q-en"></p>
 <p id="q-ref"></p>
 <audio id="q-audio" controls></audio>
+
 <button onclick="loadQuran()">New Ayah</button>
+<button class="copy" onclick="copyText('q-ar','q-en')">Copy Ayah</button>
+
+<div class="share">
+<a id="q-wa" target="_blank">WhatsApp</a>
+<a id="q-fb" target="_blank">Facebook</a>
+<a id="q-tw" target="_blank">Twitter</a>
+</div>
 </div>
 
 <!-- HADITH -->
@@ -68,15 +77,27 @@ footer{background:#eee;padding:20px;text-align:center}
 <p id="hadithText"><b>نبی ﷺ نے فرمایا:</b><br>
 اعمال کا دار و مدار نیتوں پر ہے۔</p>
 <p><i>صحیح بخاری</i></p>
-<button class="copy-btn" onclick="copyText('hadithText')">Copy Hadith</button>
+
+<button class="copy" onclick="copySingle('hadithText')">Copy Hadith</button>
+
+<div class="share">
+<a id="h-wa" target="_blank">WhatsApp</a>
+<a id="h-fb" target="_blank">Facebook</a>
+</div>
 </div>
 
 <!-- DUA -->
 <div class="card" id="dua">
 <h2>🤲 Daily Dua</h2>
-<p class="arabic" id="duaText">رَبِّ زِدْنِي عِلْمًا</p>
-<p>اے میرے رب! میرے علم میں اضافہ فرما</p>
-<button class="copy-btn" onclick="copyText('duaText')">Copy Dua</button>
+<p class="arabic" id="duaAr">رَبِّ زِدْنِي عِلْمًا</p>
+<p id="duaUr">اے میرے رب! میرے علم میں اضافہ فرما</p>
+
+<button class="copy" onclick="copySingle('duaAr')">Copy Dua</button>
+
+<div class="share">
+<a id="d-wa" target="_blank">WhatsApp</a>
+<a id="d-fb" target="_blank">Facebook</a>
+</div>
 </div>
 
 <!-- ASMA -->
@@ -111,8 +132,7 @@ footer{background:#eee;padding:20px;text-align:center}
 <div class="card" id="about">
 <h2>About Us</h2>
 <p>
-Islamic Tools is a free platform created to help Muslims with daily religious practices.
-Our goal is to provide simple, authentic and easy-to-use Islamic utilities for everyone.
+Islamic Tools is a free platform built to help Muslims with daily Islamic practices using simple and authentic digital tools.
 </p>
 </div>
 
@@ -120,25 +140,18 @@ Our goal is to provide simple, authentic and easy-to-use Islamic utilities for e
 <div class="card" id="contact">
 <h2>Contact Us</h2>
 <p>Email: contact@yourdomain.com</p>
-<p>For feedback, suggestions or collaborations, feel free to contact us.</p>
 </div>
 
 <!-- PRIVACY -->
 <div class="card" id="privacy">
 <h2>Privacy Policy</h2>
-<p>
-We do not collect, store or share any personal data.
-All tools work directly in your browser.
-</p>
+<p>We do not collect or store any personal information. All tools work directly in your browser.</p>
 </div>
 
 <!-- TERMS -->
 <div class="card" id="terms">
 <h2>Terms & Conditions</h2>
-<p>
-This website is for educational and religious purposes only.
-We do not provide financial or legal advice.
-</p>
+<p>This website is for educational and religious purposes only.</p>
 </div>
 
 </div>
@@ -154,31 +167,41 @@ async function loadQuran(){
 const ayah=Math.floor(Math.random()*6236)+1;
 const ar=await fetch(`https://api.alquran.cloud/v1/ayah/${ayah}`).then(r=>r.json());
 const en=await fetch(`https://api.alquran.cloud/v1/ayah/${ayah}/en.asad`).then(r=>r.json());
-document.getElementById('q-ar').innerText=ar.data.text;
-document.getElementById('q-en').innerText=en.data.text;
-document.getElementById('q-ref').innerText=`Surah ${ar.data.surah.englishName}`;
-document.getElementById('q-audio').src=`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${ayah}.mp3`;
+
+qAr.innerText=ar.data.text;
+qEn.innerText=en.data.text;
+qRef.innerText=`Surah ${ar.data.surah.englishName}`;
+qAudio.src=`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${ayah}.mp3`;
+
+let txt=ar.data.text+"\n"+en.data.text;
+qWa.href=`https://wa.me/?text=${encodeURIComponent(txt)}`;
+qFb.href=`https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(txt)}`;
+qTw.href=`https://twitter.com/intent/tweet?text=${encodeURIComponent(txt)}`;
 }
 loadQuran();
 
-function calcZakat(){
-let total=(+cash.value)+(+gold.value)+(+silver.value)+(+business.value)-(+debt.value);
-zakatResult.innerText=total>0?`Zakat Due: Rs ${(total*0.025).toFixed(2)}`:"No Zakat Due";
+function copyText(a,b){
+navigator.clipboard.writeText(
+document.getElementById(a).innerText+"\n"+document.getElementById(b).innerText
+);
+alert("Copied");
+}
+
+function copySingle(id){
+navigator.clipboard.writeText(document.getElementById(id).innerText);
+alert("Copied");
 }
 
 let c=0;
 function inc(){count.innerText=++c}
 function reset(){c=0;count.innerText=0}
 
-function toggleDark(){
-document.getElementById('body').classList.toggle("dark");
+function calcZakat(){
+let total=(+cash.value)+(+gold.value)+(+silver.value)+(+business.value)-(+debt.value);
+zakatResult.innerText=total>0?`Zakat Due: Rs ${(total*0.025).toFixed(2)}`:"No Zakat Due";
 }
 
-function copyText(id){
-const text=document.getElementById(id).innerText;
-navigator.clipboard.writeText(text);
-alert("Copied successfully");
-}
+function toggleDark(){body.classList.toggle("dark");}
 </script>
 
 </body>
