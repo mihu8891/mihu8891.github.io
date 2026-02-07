@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quran Ayah Tool | Read & Listen Quran Online</title>
+
+<meta name="description" content="Read Quran Ayahs with Arabic text, English & Urdu translation and audio recitation. Free Quran Ayah of the Day tool.">
+
+<style>
+body{font-family:Arial;background:#f2f7f1;padding:20px}
+.card{background:#fff;padding:25px;border-radius:15px;max-width:700px;margin:auto;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,.1)}
+.ar{font-size:26px;direction:rtl;line-height:1.8}
+.tr{margin-top:10px;font-style:italic}
+button{margin-top:15px;padding:10px 20px;background:#2e7d32;color:#fff;border:none;border-radius:8px}
+audio{width:100%;margin-top:15px}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>📖 Quran Ayah</h1>
+
+<div class="ar" id="ar">Loading...</div>
+<div class="tr" id="en"></div>
+<div class="tr" id="ur"></div>
+<p id="ref"></p>
+
+<audio id="audio" controls></audio>
+
+<button onclick="newAyah()">New Ayah</button>
+<p><a href="index.html">⬅ Back to Islamic Tools</a></p>
+</div>
+
+<script>
+async function newAyah(){
+ const r=await fetch("https://api.alquran.cloud/v1/ayah/random").then(r=>r.json());
+ const n=r.data.number;
+
+ const arD=await fetch(`https://api.alquran.cloud/v1/ayah/${n}`).then(r=>r.json());
+ ar.innerText=arD.data.text;
+ ref.innerText=`Surah ${arD.data.surah.englishName} | Ayah ${arD.data.numberInSurah}`;
+
+ en.innerText=(await fetch(`https://api.alquran.cloud/v1/ayah/${n}/en.asad`).then(r=>r.json())).data.text;
+ ur.innerText=(await fetch(`https://api.alquran.cloud/v1/ayah/${n}/ur.jalandhry`).then(r=>r.json())).data.text;
+
+ audio.src=`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${n}.mp3`;
+}
+newAyah();
+</script>
+
+</body>
+</html>
