@@ -2,8 +2,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Islamic Tools | Quran, Dua, Hadith, Zakat, Tasbeeh & Asma-ul-Husna</title>
-<meta name="description" content="All-in-one Islamic Tools: Quran Ayah, Dua, Hadith, Zakat Calculator, Tasbeeh Counter, Asma-ul-Husna with audio, copy, share and mobile friendly.">
+<title>Islamic Tools | Quran, Tasbeeh, Zakat & Hijri Calendar</title>
+<meta name="description" content="Islamic Tools platform: Quran Ayah with audio, Tasbeeh Counter, Zakat Calculator, Hijri Calendar, professional Privacy Policy & Terms.">
 <link rel="icon" href="favicon.ico"><!-- Global AdSense Script --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782948938206131" crossorigin="anonymous"></script><style>
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6f5;color:#222}
 header{background:#1b7f5a;color:#fff;padding:20px;text-align:center}
@@ -23,17 +23,16 @@ button:hover{opacity:.9}
 .share a{display:inline-block;margin:5px;padding:8px 14px;background:#1b7f5a;color:#fff;text-decoration:none;border-radius:6px;font-size:14px}
 footer{text-align:center;padding:20px;font-size:14px;color:#555}
 .ad{text-align:center;margin:15px 0}
+.hijri{font-weight:bold;color:#1b7f5a;margin-bottom:10px;font-size:18px;text-align:center}
 </style></head>
 <body><header>
 <h1>Islamic Tools</h1>
 <p>All-in-one Islamic utilities for Muslims worldwide</p>
 <nav>
 <a href="#quran">Quran</a>
-<a href="#dua">Dua</a>
-<a href="#hadith">Hadith</a>
-<a href="#asma">Asma-ul-Husna</a>
 <a href="#tasbeeh">Tasbeeh</a>
 <a href="#zakat">Zakat</a>
+<a href="#hijri">Hijri Calendar</a>
 <a href="#about">About Us</a>
 <a href="#contact">Contact</a>
 <a href="#privacy">Privacy</a>
@@ -65,36 +64,6 @@ footer{text-align:center;padding:20px;font-size:14px;color:#555}
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6782948938206131" data-ad-slot="4475757317" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
-</div><!-- Dua Tool --><div class="card" id="dua">
-<h2>🙏 Daily Dua</h2>
-<div class="arabic" id="dua-ar">اللَّهُمَّ ...</div>
-<div class="urdu" id="dua-ur">اے اللہ ...</div>
-<audio id="dua-audio" controls src="audio/dua1.mp3"></audio>
-<button onclick="nextDua()">Next Dua</button>
-<div class="share">
-<a onclick="copyDua()">Copy</a>
-<a onclick="shareDua()">Share</a>
-</div>
-</div><!-- Hadith Tool --><div class="card" id="hadith">
-<h2>📜 Hadith</h2>
-<div class="arabic" id="hadith-ar">قال رسول الله ﷺ ...</div>
-<div class="urdu" id="hadith-ur">رسول اللہ ﷺ نے فرمایا ...</div>
-<audio id="hadith-audio" controls src="audio/hadith1.mp3"></audio>
-<button onclick="nextHadith()">Next Hadith</button>
-<div class="share">
-<a onclick="copyHadith()">Copy</a>
-<a onclick="shareHadith()">Share</a>
-</div>
-</div><!-- Asma-ul-Husna --><div class="card" id="asma">
-<h2>🌙 Asma-ul-Husna</h2>
-<div class="arabic" id="nameArabic">الرَّحْمٰنُ</div>
-<div class="urdu" id="nameUrdu">نہایت مہربان</div>
-<audio id="audio-asma" controls></audio>
-<button onclick="prevName()">◀ Previous</button>
-<button onclick="toggleAuto()">▶ Auto Play</button>
-<button onclick="nextName()">Next ▶</button>
-<button onclick="copyName()">Copy</button>
-<button onclick="shareName()">Share</button>
 </div><!-- Tasbeeh Counter --><div class="card" id="tasbeeh">
 <h2>📿 Tasbeeh Counter</h2>
 <select id="dhikr" onchange="resetCount()">
@@ -122,11 +91,14 @@ footer{text-align:center;padding:20px;font-size:14px;color:#555}
 <button onclick="calculateZakat()">Calculate Zakat</button>
 <div class="result" id="zakatResult"></div>
 <p class="note">Zakat rate 2.5% if wealth exceeds Nisab.</p>
-</div><!-- About, Contact, Privacy, Terms --><div class="card" id="about"><h2>About Us</h2><p>Islamic Tools is a free platform providing Muslims worldwide with digital tools for daily religious practices.</p></div>
-<div class="card" id="contact"><h2>Contact Us</h2><p>Email: contact@yourdomain.com</p></div>
-<div class="card" id="privacy"><h2>Privacy Policy</h2><p>No personal data is stored. Tools are free to use.</p></div>
-<div class="card" id="terms"><h2>Terms & Conditions</h2><p>Tools provided for educational & religious purposes. Users responsible for their usage.</p></div><!-- Footer --><footer>
-<p>© 2026 Islamic Tools</p>
+</div><!-- Hijri Calendar --><div class="card" id="hijri">
+<h2>🕌 Current Hijri Date</h2>
+<div class="hijri" id="hijri-date">Loading...</div>
+</div><!-- About, Contact, Privacy, Terms --><div class="card" id="about"><h2>About Us</h2><p>Islamic Tools is a free and user-friendly platform offering digital Islamic utilities to assist Muslims worldwide in their daily religious practices, including Quran reading, Tasbeeh counting, and Zakat calculation.</p></div>
+<div class="card" id="contact"><h2>Contact Us</h2><p>Email: contact@yourdomain.com</p><p>For feedback or collaborations, please reach out.</p></div>
+<div class="card" id="privacy"><h2>Privacy Policy</h2><p>We respect your privacy. Islamic Tools does not store any personal data. All tools are free to use, fully client-side, and secure.</p></div>
+<div class="card" id="terms"><h2>Terms & Conditions</h2><p>These tools are provided for educational and religious purposes. Users are responsible for their usage. Islamic Tools is not responsible for any misuse.</p></div><!-- Footer --><footer>
+<p>© 2026 Islamic Tools | Built for Ummah</p>
 <div class="ad">
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6782948938206131" data-ad-slot="3151803443" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -164,15 +136,12 @@ if(total<=0){zakatResult.innerText='No Zakat Due';return;}
 zakatResult.innerText='Zakat Due: PKR '+(total*0.025).toFixed(2);
 }
 
-// Asma-ul-Husna JS
-const names=[{ar:"الرَّحْمٰنُ",ur:"نہایت مہربان",au:"audio/01.mp3"},{ar:"الرَّحِيمُ",ur:"بہت رحم کرنے والا",au:"audio/02.mp3"},{ar:"الْمَلِكُ",ur:"بادشاہ",au:"audio/03.mp3"}];
-let i=0,auto=false,timer;
-function loadName(){document.getElementById('nameArabic').innerText=names[i].ar;document.getElementById('nameUrdu').innerText=names[i].ur;document.getElementById('audio-asma').src=names[i].au;document.getElementById('audio-asma').play();}
-function nextName(){i=(i+1)%names.length;loadName();}
-function prevName(){i=(i-1+names.length)%names.length;loadName();}
-function toggleAuto(){auto=!auto;if(auto){timer=setInterval(nextName,5000);}else{clearInterval(timer);}}
-function copyName(){navigator.clipboard.writeText(names[i].ar+' - '+names[i].ur);alert('Copied');}
-function shareName(){window.open('https://wa.me/?text='+encodeURIComponent(names[i].ar),'_blank');}
-loadName();
+// Hijri Calendar JS
+function hijriDate(){
+  const now=new Date();
+  const islamic = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {day:'numeric',month:'long',year:'numeric'}).format(now);
+  document.getElementById('hijri-date').innerText=islamic;
+}
+hijriDate();
 </script></body>
   </html>
