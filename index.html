@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Islamic Tools – Quran, Zakat, Tasbeeh & More</title>
-<meta name="description" content="All-in-one Islamic tools: Quran, Zakat, Tasbeeh, Daily Hadith, Daily Dua, Prayer Times, Hijri Calendar, Asma ul Husna.">
+<title>Islamic Tools – Quran, Hadith, Dua, Asma ul Husna, Zakat & Tasbeeh</title>
+<meta name="description" content="All-in-one Islamic tools: Quran, Hadith, Dua, Asma ul Husna, Zakat Calculator, Tasbeeh Counter. Mobile friendly & SEO optimized.">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-<!-- AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782948938206131" crossorigin="anonymous"></script>
 
 <style>
@@ -29,6 +28,7 @@ input,select{width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px
 .translation{margin:8px 0;font-style:italic}
 .ref{font-size:14px;color:#555}
 .share a{display:inline-block;margin:5px;padding:8px 14px;background:#1b7f5a;color:#fff;text-decoration:none;border-radius:6px;font-size:14px}
+audio{width:100%;margin-top:10px}
 </style>
 </head>
 <body>
@@ -40,8 +40,6 @@ input,select{width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px
 <a href="#quran">Quran</a>
 <a href="#hadith">Hadith</a>
 <a href="#dua">Dua</a>
-<a href="#prayer">Prayer Times</a>
-<a href="#hijri">Hijri</a>
 <a href="#asma">Asma ul Husna</a>
 <a href="#zakat">Zakat</a>
 <a href="#tasbeeh">Tasbeeh</a>
@@ -102,33 +100,28 @@ input,select{width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px
 <!-- Hadith -->
 <div class="card" id="hadith">
 <h2>📜 Daily Hadith</h2>
-<p id="hadith-api-text">Loading hadith...</p>
+<div id="hadith-ar">Loading Urdu...</div>
+<div id="hadith-en">Loading English...</div>
+<audio id="hadith-audio" controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
 <button onclick="fetchHadith()">New Hadith</button>
 </div>
 
 <!-- Dua -->
 <div class="card" id="dua">
 <h2>🙏 Daily Dua</h2>
-<p id="dua-api-text">Loading dua...</p>
+<div id="dua-ar">Loading Urdu...</div>
+<div id="dua-en">Loading English...</div>
+<audio id="dua-audio" controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
 <button onclick="fetchDua()">New Dua</button>
-</div>
-
-<!-- Prayer Times -->
-<div class="card" id="prayer">
-<h2>🕋 Prayer Times</h2>
-<p id="prayer-times">Loading...</p>
-</div>
-
-<!-- Hijri Calendar -->
-<div class="card" id="hijri">
-<h2>📅 Hijri Date</h2>
-<p id="hijri-date">Loading...</p>
 </div>
 
 <!-- Asma ul Husna -->
 <div class="card" id="asma">
 <h2>🌟 Asma ul Husna</h2>
-<p id="asma-text"></p>
+<div id="asma-ar"></div>
+<div id="asma-ur"></div>
+<div id="asma-en"></div>
+<audio id="asma-audio" controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
 <button onclick="nextName()">Next Name</button>
 </div>
 
@@ -155,26 +148,25 @@ input,select{width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px
 <!-- About Us -->
 <div class="card" id="about">
 <h2>About Us</h2>
-<p>Islamic Tools is a free platform providing Muslims worldwide with easy-to-use digital tools for daily religious practices, including Zakat calculation, Tasbeeh counting, and Quranic guidance with translations and recitations.</p>
+<p>Islamic Tools is a free platform providing Muslims worldwide with easy-to-use digital tools for daily religious practices.</p>
 </div>
 
 <!-- Contact Us -->
 <div class="card" id="contact">
 <h2>Contact Us</h2>
 <p>Email: contact@yourdomain.com</p>
-<p>For suggestions, feedback, or collaborations, reach out anytime.</p>
 </div>
 
 <!-- Privacy Policy -->
 <div class="card" id="privacy">
 <h2>Privacy Policy</h2>
-<p>We do not store any personal data. All tools are free to use and operate without collecting your information. Your privacy is important to us.</p>
+<p>We do not store any personal data. All tools are free to use and operate without collecting your information.</p>
 </div>
 
 <!-- Terms & Conditions -->
 <div class="card" id="terms">
 <h2>Terms & Conditions</h2>
-<p>All tools are provided for educational and religious purposes. Users are responsible for their own usage. Islamic Tools does not provide legal or financial advice.</p>
+<p>All tools are provided for educational and religious purposes. Users are responsible for their own usage.</p>
 </div>
 
 </div>
@@ -189,7 +181,6 @@ input,select{width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px
 <a href="#terms">Terms</a>
 </p>
 
-<!-- Footer Ad -->
 <div style="text-align:center;margin:15px 0;">
 <ins class="adsbygoogle"
      style="display:block"
@@ -202,11 +193,11 @@ input,select{width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px
 </footer>
 
 <script>
-let ayahText='',count=0,idx=0,names=["Ar-Rahman","Ar-Rahim","Al-Malik","Al-Quddus","As-Salam","Al-Mu’min","Al-Muhaymin","Al-Aziz","Al-Jabbar","Al-Mutakabbir","Al-Khaliq","Al-Bari’","Al-Musawwir","Al-Ghaffar","Al-Qahhar","Al-Wahhab","Ar-Razzaq","Al-Fattah","Al-Alim","Al-Qabid","Al-Basit","Al-Khafid","Ar-Rafi","Al-Mu’izz","Al-Mudhill","As-Sami","Al-Basir","Al-Hakam","Al-‘Adl","Al-Latif","Al-Khabir","Al-Halim","Al-Azim","Al-Ghafur","Ash-Shakur","Al-Ali","Al-Kabir","Al-Hafiz","Al-Muqit","Al-Hasib","Al-Jalil","Al-Karim","Ar-Raqib","Al-Mujib","Al-Wasi","Al-Hakim","Al-Wadud","Al-Majid","Al-Ba’ith","Ash-Shahid","Al-Haqq","Al-Wakil","Al-Qawi","Al-Matin","Al-Wali","Al-Hamid","Al-Muhsi","Al-Mubdi","Al-Mu’id","Al-Muhyi","Al-Mumit","Al-Hayy","Al-Qayyum","Al-Wajid","Al-Majid","Al-Wahid","Al-Ahad","As-Samad","Al-Qadir","Al-Muqtadir","Al-Muqaddim","Al-Mu’akhkhir","Al-Awwal","Al-Akhir","Az-Zahir","Al-Batin","Al-Wali","Al-Muta’ali","Al-Barr","At-Tawwab","Al-Muntaqim","Al-Afuw","Ar-Ra’uf","Malik-ul-Mulk","Dhul-Jalal wal-Ikram","Al-Muqsit","Al-Jami’","Al-Ghani","Al-Mughni","Al-Mani’","Ad-Darr","An-Nafi’","An-Nur","Al-Hadi","Al-Badi","Al-Baqi","Al-Warith","Ar-Rashid","As-Sabur"];
-
 // Quran
+let ayahText='';
 async function loadAyah(newOne=false){
 const ayah=newOne?Math.floor(Math.random()*6236)+1:(new Date().getDate()+(new Date().getMonth()*30+new Date().getFullYear()*365)%6236+1);
+const qari=document.getElementById('qari').value;
 try{
 const ar=await fetch(`https://api.alquran.cloud/v1/ayah/${ayah}`).then(r=>r.json());
 const en=await fetch(`https://api.alquran.cloud/v1/ayah/${ayah}/en.asad`).then(r=>r.json());
@@ -216,47 +207,36 @@ document.getElementById('ayah-ar').innerText=ar.data.text;
 document.getElementById('ayah-en').innerText=en.data.text;
 document.getElementById('ayah-ur').innerText=ur.data.text;
 document.getElementById('ayah-ref').innerText=`Surah ${ar.data.surah.englishName} | Ayah ${ar.data.numberInSurah}`;
-document.getElementById('ayah-audio').src=`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${ayah}.mp3`;
+document.getElementById('ayah-audio').src=`https://cdn.islamic.network/quran/audio/128/${qari}/${ayah}.mp3`;
 document.getElementById('wa').href=`https://wa.me/?text=${encodeURIComponent(ayahText)}`;
 document.getElementById('fb').href=`https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(ayahText)}`;
 }catch(e){console.log(e)}
 }
 function copyAyah(){navigator.clipboard.writeText(ayahText);alert('Copied!')}
 
-// Hadith
-async function fetchHadith(){
-try{const r=await fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-abudawud.json").then(r=>r.json());
-const h=r.hadiths[Math.floor(Math.random()*r.hadiths.length)];
-document.getElementById("hadith-api-text").innerText=h.text}catch(e){document.getElementById("hadith-api-text").innerText="Could not load hadith."}
+// Hadith (sample)
+function fetchHadith(){
+document.getElementById('hadith-ar').innerText="حضرت علی رضی اللہ عنہ بیان کرتے ہیں کہ ...";
+document.getElementById('hadith-en').innerText="Hadith in English goes here...";
+document.getElementById('hadith-audio').src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 }
 
-// Dua
-async function fetchDua(){
-try{const r=await fetch("https://dua-dhikr.vercel.app/api/categories/sunnah-dua").then(r=>r.json());
-const d=r[Math.floor(Math.random()*r.length)];
-document.getElementById("dua-api-text").innerText=d.arabic+" - "+d.translation}catch(e){document.getElementById("dua-api-text").innerText="Could not load dua."}
-}
-
-// Prayer Times
-async function loadPrayerTimes(){
-if(navigator.geolocation){
-navigator.geolocation.getCurrentPosition(async pos=>{
-const lat=pos.coords.latitude,lon=pos.coords.longitude;
-const res=await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`).then(r=>r.json());
-let t=res.data.timings;
-document.getElementById('prayer-times').innerHTML=`Fajr: ${t.Fajr}<br>Dhuhr: ${t.Dhuhr}<br>Asr: ${t.Asr}<br>Maghrib: ${t.Maghrib}<br>Isha: ${t.Isha}`;
-});
-}else document.getElementById('prayer-times').innerText="Geolocation not supported.";
-}
-
-// Hijri
-async function loadHijri(){
-const r=await fetch("https://api.aladhan.com/v1/gToH?date="+new Date().toISOString().slice(0,10)).then(r=>r.json());
-document.getElementById('hijri-date').innerText=r.data.hijri.date+" | "+r.data.hijri.dayName;
+// Dua (sample)
+function fetchDua(){
+document.getElementById('dua-ar').innerText="دعا کا متن یہاں";
+document.getElementById('dua-en').innerText="Dua in English goes here...";
+document.getElementById('dua-audio').src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3";
 }
 
 // Asma ul Husna
-function nextName(){idx=(idx+1)%names.length;document.getElementById("asma-text").innerText=names[idx];}
+let idx=0,names=["Ar-Rahman","Ar-Rahim","Al-Malik","Al-Quddus","As-Salam"];
+function nextName(){
+idx=(idx+1)%names.length;
+document.getElementById("asma-ar").innerText=names[idx];
+document.getElementById("asma-ur").innerText="اسم کا اردو مطلب";
+document.getElementById("asma-en").innerText="Name meaning in English";
+document.getElementById("asma-audio").src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3";
+}
 
 // Zakat
 function calculateZakat(){
@@ -265,12 +245,12 @@ zakatResult.innerText=total>0?`Zakat Due: Rs ${(total*0.025).toFixed(2)}`:'No Za
 }
 
 // Tasbeeh
+let count=0;
 function increment(){count++;document.getElementById("count").innerText=count;}
 function resetCounter(){count=0;document.getElementById("count").innerText=0;}
 
 // Load all
-loadAyah();fetchHadith();fetchDua();loadPrayerTimes();loadHijri();
+loadAyah();fetchHadith();fetchDua();nextName();
 </script>
-
 </body>
   </html>
