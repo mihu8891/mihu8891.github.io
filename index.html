@@ -136,11 +136,15 @@ if(total<=0){zakatResult.innerText='No Zakat Due';return;}
 zakatResult.innerText='Zakat Due: PKR '+(total*0.025).toFixed(2);
 }
 
-// Hijri Calendar JS
+// Hijri Calendar JS with Islamic Month
 function hijriDate(){
-  const now=new Date();
-  const islamic = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {day:'numeric',month:'long',year:'numeric'}).format(now);
-  document.getElementById('hijri-date').innerText=islamic;
+  const now = new Date();
+  const hijriMonths = ["Muharram","Safar","Rabi' al-awwal","Rabi' al-thani","Jumada al-awwal","Jumada al-thani","Rajab","Sha'ban","Ramadan","Shawwal","Dhul-Qi'dah","Dhul-Hijjah"];
+  const islamicDate = new Intl.DateTimeFormat('en-u-ca-islamic', { day:'numeric', month:'numeric', year:'numeric' }).formatToParts(now);
+  let day='', month='', year='';
+  islamicDate.forEach(part=>{if(part.type==='day') day=part.value; if(part.type==='month') month=part.value; if(part.type==='year') year=part.value;});
+  month = hijriMonths[parseInt(month)-1];
+  document.getElementById('hijri-date').innerText = `${day} ${month} ${year}`;
 }
 hijriDate();
 </script></body>
