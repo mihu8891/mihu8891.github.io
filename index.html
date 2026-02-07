@@ -2,36 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Quran, Duas & Hadith | Islamic Website</title>
+<title>Islamic Website | Quran • Dua • Hadith</title>
 
-<!-- SEO -->
-<meta name="description" content="Read Quran with Audio, Duas, Hadith (Arabic & Urdu), Asma ul Husna with Auto Audio.">
-<meta name="keywords" content="Quran Audio, Islamic Duas, Hadith Urdu Arabic, Asma ul Husna">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Read Quran with authentic audio, Islamic Duas and Hadith in Arabic and Urdu.">
 
-<!-- Favicon -->
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/6/6b/Islamic_symbol.svg">
 
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- AdSense Global -->
+<!-- AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782948938206131"
 crossorigin="anonymous"></script>
 
 <style>
-body{margin:0;font-family:Arial;background:#f4f6f8}
-header{background:#0a5c36;color:#fff;padding:15px;text-align:center}
-nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold}
-section{padding:20px;background:#fff;margin:15px;border-radius:8px}
+body{margin:0;font-family:Arial;background:#f2f2f2}
+header{background:#0a5c36;color:#fff;text-align:center;padding:15px}
+nav a{color:#fff;margin:0 8px;text-decoration:none;font-weight:bold}
+section{background:#fff;margin:15px;padding:15px;border-radius:6px}
 h2{color:#0a5c36}
 .ar{font-size:22px;direction:rtl}
 .ur{font-size:16px;color:#333}
-.btn{background:#0a5c36;color:#fff;border:none;padding:6px 10px;border-radius:4px;cursor:pointer;margin:5px}
+button{background:#0a5c36;color:#fff;border:none;padding:6px 10px;border-radius:4px;cursor:pointer}
 audio{width:100%;margin-top:10px}
-.share i{margin:5px;font-size:20px;cursor:pointer;color:#0a5c36}
-footer{background:#0a5c36;color:#fff;text-align:center;padding:15px}
-footer a{color:#fff;margin:0 8px;text-decoration:none}
+footer{background:#0a5c36;color:#fff;text-align:center;padding:12px}
+footer a{color:#fff;margin:0 6px;text-decoration:none}
 </style>
 </head>
 
@@ -43,13 +36,12 @@ footer a{color:#fff;margin:0 8px;text-decoration:none}
 <a href="#quran">Quran</a>
 <a href="#dua">Dua</a>
 <a href="#hadith">Hadith</a>
-<a href="#asma">Asma-ul-Husna</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
-<!-- TOP AD -->
+<!-- Ad -->
 <ins class="adsbygoogle" style="display:block"
 data-ad-client="ca-pub-6782948938206131"
 data-ad-slot="8574784426"
@@ -57,83 +49,40 @@ data-ad-format="auto"
 data-full-width-responsive="true"></ins>
 <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 
-<!-- QURAN -->
 <section id="quran">
-<h2>📖 Quran Ayah</h2>
+<h2>Quran Ayah</h2>
 <p class="ar" id="quranText">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-
-<button class="btn" onclick="copyText('quranText')">Copy</button>
-
-<div class="share">
-<i class="fab fa-whatsapp" onclick="share('بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ')"></i>
-<i class="fab fa-facebook"></i>
-<i class="fab fa-x-twitter"></i>
-</div>
+<button onclick="copyText('quranText')">Copy</button>
+<button onclick="shareText('بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ')">Share</button>
 
 <audio controls>
 <source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/001.mp3" type="audio/mpeg">
 </audio>
 </section>
 
-<!-- IN CONTENT AD -->
-<ins class="adsbygoogle" style="display:block"
-data-ad-client="ca-pub-6782948938206131"
-data-ad-slot="4475757317"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-
-<!-- DUA -->
 <section id="dua">
-<h2>🤲 Dua</h2>
+<h2>Dua</h2>
 <p class="ar" id="duaText">رَبِّ زِدْنِي عِلْمًا</p>
 <p class="ur">اے میرے رب! میرے علم میں اضافہ فرما</p>
-
-<button class="btn" onclick="copyText('duaText')">Copy</button>
-
-<audio controls>
-<source src="https://www.islamcan.com/audio/dua/dua01.mp3" type="audio/mpeg">
-</audio>
+<button onclick="copyText('duaText')">Copy</button>
 </section>
 
-<!-- HADITH -->
 <section id="hadith">
-<h2>📜 Hadith</h2>
+<h2>Hadith</h2>
 <p class="ar" id="hadithText">إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ</p>
 <p class="ur">اعمال کا دارومدار نیتوں پر ہے</p>
-
-<button class="btn" onclick="copyText('hadithText')">Copy</button>
+<button onclick="copyText('hadithText')">Copy</button>
 </section>
 
-<!-- ASMA UL HUSNA -->
-<section id="asma">
-<h2>🌙 Asma-ul-Husna (Auto)</h2>
-<p class="ar" id="asmaText">ٱلرَّحْمَٰنُ</p>
-
-<audio id="asmaAudio" autoplay controls>
-<source src="https://www.islamcan.com/audio/99-names-of-allah/01.mp3" type="audio/mpeg">
-</audio>
-</section>
-
-<!-- ABOUT -->
 <section id="about">
 <h2>About Us</h2>
-<p>We provide authentic Islamic content including Quran with audio, Duas, Hadith, and Asma-ul-Husna.</p>
+<p>This website provides authentic Islamic content including Quran, Duas and Hadith.</p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
 <h2>Contact Us</h2>
 <p>Email: support@yourwebsite.com</p>
 </section>
-
-<!-- FOOTER AD -->
-<ins class="adsbygoogle" style="display:block"
-data-ad-client="ca-pub-6782948938206131"
-data-ad-slot="3151803443"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 
 <footer>
 <a href="#">Privacy Policy</a> |
@@ -143,11 +92,11 @@ data-full-width-responsive="true"></ins>
 
 <script>
 function copyText(id){
-let text=document.getElementById(id).innerText;
+const text=document.getElementById(id).innerText;
 navigator.clipboard.writeText(text);
-alert("Copied!");
+alert("Copied successfully");
 }
-function share(text){
+function shareText(text){
 window.open("https://wa.me/?text="+encodeURIComponent(text));
 }
 </script>
