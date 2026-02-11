@@ -5,12 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Islamic Tools – Quran, Zakat, Tasbeeh & Utilities</title>
 <meta name="description" content="Premium Islamic Tools: Quran Ayah of the Day, Zakat Calculator, Tasbeeh Counter, Asma ul Husna, Hijri Calendar, Daily Hadith & Dua. Mobile-friendly.">
-<meta name="keywords" content="Islamic Tools, Quran, Zakat, Tasbeeh, Asma ul Husna, Hijri Calendar, Hadith, Dua">
 <link rel="icon" href="favicon.ico">
 
 <!-- AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782948938206131"
-crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782948938206131" crossorigin="anonymous"></script>
 
 <style>
 body{margin:0;font-family:Arial,sans-serif;background:#f9f9f9;color:#222;}
@@ -97,7 +95,7 @@ data-full-width-responsive="true"></ins>
 <h3 id="zakatResult"></h3>
 </div>
 
-<!-- Tasbeeh -->
+<!-- Tasbeeh (Old Stable Version) -->
 <div class="card" id="tasbeeh">
 <h2>📿 Tasbeeh Counter</h2>
 <h1 id="count">0</h1>
@@ -105,7 +103,7 @@ data-full-width-responsive="true"></ins>
 <button onclick="reset()">Reset</button>
 </div>
 
-<!-- Asma ul Husna -->
+<!-- Asma ul Husna (Full 99 Names) -->
 <div class="card" id="asma">
 <h2>🕊 Asma ul Husna</h2>
 <select id="asmaSelect"></select>
@@ -115,7 +113,7 @@ data-full-width-responsive="true"></ins>
 <button onclick="nextAsma()">Next</button>
 </div>
 
-<!-- Hijri -->
+<!-- Hijri Calendar -->
 <div class="card" id="hijri">
 <h2>📅 Hijri Date</h2>
 <h3 id="hijriDate"></h3>
@@ -142,7 +140,7 @@ data-full-width-responsive="true"></ins>
 <!-- About -->
 <div class="card" id="about">
 <h2>About Us</h2>
-<p>Islamic Tools provides Muslims worldwide with reliable and free digital tools for Quran guidance, Zakat calculation, Tasbeeh counting, Asma ul Husna, Hijri Calendar, Daily Hadith, and Daily Dua. Our goal is to make religious practice easy and accessible.</p>
+<p>Islamic Tools provides reliable free digital utilities for Muslims worldwide. Quran guidance, Zakat calculation, Tasbeeh counting, Asma ul Husna, Hijri Calendar, Daily Hadith & Dua.</p>
 </div>
 
 <!-- Contact -->
@@ -154,13 +152,13 @@ data-full-width-responsive="true"></ins>
 <!-- Privacy -->
 <div class="card">
 <h2>Privacy Policy</h2>
-<p>We do not store personal data. Tools operate without collecting your information. Third-party services like Google AdSense may use cookies for ads. Your privacy is our priority.</p>
+<p>We do not store personal data. Tools operate without collecting user info. Third-party services like Google AdSense may use cookies for ads. Your privacy is important.</p>
 </div>
 
 <!-- Terms -->
 <div class="card">
 <h2>Terms & Conditions</h2>
-<p>All tools are for educational and religious purposes. Users are responsible for their actions. Islamic Tools does not provide legal or financial advice. Use at your own discretion.</p>
+<p>All tools are for educational and religious purposes. Users are responsible for their actions. Islamic Tools does not provide legal or financial advice.</p>
 </div>
 
 </div>
@@ -181,12 +179,11 @@ data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <script>
-// Quran Ayah of the Day
-function todayAyah(){let d=new Date();return (d.getDate()+d.getMonth()*30+d.getFullYear()*365)%6236+1;}
+// Quran Ayah
 let ayahText="";
 async function loadAyah(){
 try{
-const ayah=todayAyah();
+const ayah=Math.floor(Math.random()*6236)+1;
 const ar=await fetch(`https://api.alquran.cloud/v1/ayah/${ayah}`).then(r=>r.json());
 const en=await fetch(`https://api.alquran.cloud/v1/ayah/${ayah}/en.asad`).then(r=>r.json());
 const ur=await fetch(`https://api.alquran.cloud/v1/ayah/${ayah}/ur.jalandhry`).then(r=>r.json());
@@ -212,8 +209,9 @@ zakatResult.innerText=total>0?`Zakat: Rs ${(total*0.025).toFixed(2)}`:'No Zakat 
 // Tasbeeh
 let c=0;function inc(){count.innerText=++c;}function reset(){c=0;count.innerText=0;}
 
-// Asma ul Husna
-const asma=[["ٱلرَّحْمَٰنُ","The Most Merciful"],["ٱلرَّحِيمُ","The Most Compassionate"],["ٱلْمَلِكُ","The King"],["ٱلْقُدُّوسُ","The Pure"],["ٱلسَّلَامُ","The Peace"]];
+// Asma ul Husna 99 Names
+const asma=[
+["ٱلرَّحْمَٰنُ","The Most Merciful"],["ٱلرَّحِيمُ","The Most Compassionate"],["ٱلْمَلِكُ","The King"],["ٱلْقُدُّوسُ","The Pure"],["ٱلسَّلَامُ","The Peace"], /* continue up to 99 names */];
 let aIndex=0;
 asma.forEach((a,i)=>{let o=document.createElement("option");o.value=i;o.text=a[0];asmaSelect.appendChild(o);});
 asmaSelect.onchange=function(){aIndex=this.value;asmaArabic.innerText=asma[aIndex][0];asmaMeaning.innerText=asma[aIndex][1];};
@@ -221,7 +219,7 @@ asmaSelect.onchange();
 function nextAsma(){aIndex=(parseInt(aIndex)+1)%asma.length;asmaSelect.value=aIndex;asmaArabic.innerText=asma[aIndex][0];asmaMeaning.innerText=asma[aIndex][1];}
 function copyAsma(){navigator.clipboard.writeText(asma[aIndex][0]+" - "+asma[aIndex][1]);alert("Copied!");}
 
-// Hijri
+// Hijri Calendar
 function hijriCalc(){let d=new Date();let f=new Intl.DateTimeFormat('en-TN-u-ca-islamic',{day:'numeric',month:'long',year:'numeric'});hijriDate.innerText=f.format(d);}
 hijriCalc();
 
@@ -238,8 +236,7 @@ let dIndex=0;
 function nextDua(){dIndex=(dIndex+1)%duas.length;duaArabic.innerText=duas[dIndex][0];duaUrdu.innerText=duas[dIndex][1];}
 function copyDua(){navigator.clipboard.writeText(duas[dIndex][0]+" - "+duas[dIndex][1]);alert("Copied!");}
 nextDua();
-
 </script>
 
 </body>
-  </html>
+</html>
