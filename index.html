@@ -64,6 +64,46 @@ footer{text-align:center;padding:20px;font-size:14px;color:#555}
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6782948938206131" data-ad-slot="4475757317" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
+  <!-- Islami Wazifay Tool -->
+<div class="card" id="wazifa">
+  <h2>🕋 Islami Wazifay</h2>
+  <div id="wazifa-text" class="arabic">Loading...</div>
+  <div id="wazifa-translation" class="translation"></div>
+  <button onclick="newWazifa()">Next Wazifa</button>
+  <div class="share">
+    <a onclick="copyWazifa()">Copy</a>
+    <a id="wa-wazifa" target="_blank">WhatsApp</a>
+    <a id="fb-wazifa" target="_blank">Facebook</a>
+  </div>
+</div>
+
+<script>
+// List of Wazifay
+const wazifaList = [
+  {ar: "سُبْحَانَ اللهِ وَبِحَمْدِهِ", en: "Glory be to Allah and praise Him"},
+  {ar: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَآلِ مُحَمَّدٍ", en: "O Allah, send blessings upon Muhammad and his family"},
+  {ar: "أَسْتَغْفِرُ اللهَ", en: "I seek forgiveness from Allah"},
+  {ar: "لَا إِلَهَ إِلَّا اللهُ", en: "There is no deity but Allah"}
+];
+
+let wazifaIndex = 0;
+
+function newWazifa() {
+  wazifaIndex = (wazifaIndex + 1) % wazifaList.length;
+  document.getElementById('wazifa-text').innerText = wazifaList[wazifaIndex].ar;
+  document.getElementById('wazifa-translation').innerText = wazifaList[wazifaIndex].en;
+  document.getElementById('wa-wazifa').href = `https://wa.me/?text=${encodeURIComponent(wazifaList[wazifaIndex].ar + ' - ' + wazifaList[wazifaIndex].en)}`;
+  document.getElementById('fb-wazifa').href = `https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(wazifaList[wazifaIndex].ar + ' - ' + wazifaList[wazifaIndex].en)}`;
+}
+
+function copyWazifa() {
+  navigator.clipboard.writeText(wazifaList[wazifaIndex].ar + "\n" + wazifaList[wazifaIndex].en);
+  alert('Wazifa copied!');
+}
+
+// Load first Wazifa on page load
+newWazifa();
+</script>
 </div><!-- Tasbeeh Counter --><div class="card" id="tasbeeh">
 <h2>📿 Tasbeeh Counter</h2>
 <select id="dhikr" onchange="resetCount()">
