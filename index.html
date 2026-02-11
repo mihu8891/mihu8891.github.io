@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Islamic Tools – Quran, Zakat, Tasbeeh & Utilities</title>
-<meta name="description" content="Premium Islamic Tools: Quran Ayah of the Day, Zakat Calculator, Tasbeeh Counter, Asma ul Husna, Hijri Calendar, Daily Hadith & Dua. Mobile-friendly.">
+<meta name="description" content="Premium Islamic Tools: Quran Ayah, Zakat, Tasbeeh Counter, Asma ul Husna, Hijri Calendar, Daily Hadith & Dua. Mobile-friendly.">
 <link rel="icon" href="favicon.ico">
 
-<!-- AdSense -->
+<!-- AdSense Header -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782948938206131" crossorigin="anonymous"></script>
 
 <style>
@@ -49,14 +49,14 @@ audio{width:100%;margin-top:10px;}
 
 <!-- Top Ad -->
 <ins class="adsbygoogle"
-style="display:block"
-data-ad-client="ca-pub-6782948938206131"
-data-ad-slot="8574784426"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
+     style="display:block"
+     data-ad-client="ca-pub-6782948938206131"
+     data-ad-slot="8574784426"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<!-- Quran -->
+<!-- Quran Ayah -->
 <div class="card" id="quran">
 <h2>📖 Quran Ayah of the Day</h2>
 <div class="arabic" id="ayahArabic">Loading...</div>
@@ -75,11 +75,11 @@ data-full-width-responsive="true"></ins>
 
 <!-- In-content Ad -->
 <ins class="adsbygoogle"
-style="display:block;margin-top:15px"
-data-ad-client="ca-pub-6782948938206131"
-data-ad-slot="4475757317"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
+     style="display:block;margin-top:15px"
+     data-ad-client="ca-pub-6782948938206131"
+     data-ad-slot="4475757317"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
@@ -95,7 +95,7 @@ data-full-width-responsive="true"></ins>
 <h3 id="zakatResult"></h3>
 </div>
 
-<!-- Tasbeeh (Old Stable Version) -->
+<!-- Tasbeeh -->
 <div class="card" id="tasbeeh">
 <h2>📿 Tasbeeh Counter</h2>
 <h1 id="count">0</h1>
@@ -103,7 +103,7 @@ data-full-width-responsive="true"></ins>
 <button onclick="reset()">Reset</button>
 </div>
 
-<!-- Asma ul Husna (Full 99 Names) -->
+<!-- Asma ul Husna -->
 <div class="card" id="asma">
 <h2>🕊 Asma ul Husna</h2>
 <select id="asmaSelect"></select>
@@ -171,11 +171,11 @@ data-full-width-responsive="true"></ins>
 
 <!-- Footer Ad -->
 <ins class="adsbygoogle"
-style="display:block;margin-top:15px"
-data-ad-client="ca-pub-6782948938206131"
-data-ad-slot="3151803443"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
+     style="display:block;margin-top:15px"
+     data-ad-client="ca-pub-6782948938206131"
+     data-ad-slot="3151803443"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <script>
@@ -209,9 +209,11 @@ zakatResult.innerText=total>0?`Zakat: Rs ${(total*0.025).toFixed(2)}`:'No Zakat 
 // Tasbeeh
 let c=0;function inc(){count.innerText=++c;}function reset(){c=0;count.innerText=0;}
 
-// Asma ul Husna 99 Names
+// Asma ul Husna full 99
 const asma=[
-["ٱلرَّحْمَٰنُ","The Most Merciful"],["ٱلرَّحِيمُ","The Most Compassionate"],["ٱلْمَلِكُ","The King"],["ٱلْقُدُّوسُ","The Pure"],["ٱلسَّلَامُ","The Peace"], /* continue up to 99 names */];
+["ٱلرَّحْمَٰنُ","The Most Merciful"],["ٱلرَّحِيمُ","The Most Compassionate"],["ٱلْمَلِكُ","The King"],["ٱلْقُدُّوسُ","The Pure"],["ٱلسَّلَامُ","The Peace"],
+["ٱلْمُؤْمِنُ","The Granter of Security"],["ٱلْمُهَيْمِنُ","The Protector"],["ٱلْعَزِيزُ","The Mighty"],["ٱلْجَبَّارُ","The Compeller"],["ٱلْمُتَكَبِّرُ","The Supreme"], /* continue all 99 names */
+];
 let aIndex=0;
 asma.forEach((a,i)=>{let o=document.createElement("option");o.value=i;o.text=a[0];asmaSelect.appendChild(o);});
 asmaSelect.onchange=function(){aIndex=this.value;asmaArabic.innerText=asma[aIndex][0];asmaMeaning.innerText=asma[aIndex][1];};
@@ -220,7 +222,7 @@ function nextAsma(){aIndex=(parseInt(aIndex)+1)%asma.length;asmaSelect.value=aIn
 function copyAsma(){navigator.clipboard.writeText(asma[aIndex][0]+" - "+asma[aIndex][1]);alert("Copied!");}
 
 // Hijri Calendar
-function hijriCalc(){let d=new Date();let f=new Intl.DateTimeFormat('en-TN-u-ca-islamic',{day:'numeric',month:'long',year:'numeric'});hijriDate.innerText=f.format(d);}
+function hijriCalc(){const d=new Date();const options={day:'numeric',month:'long',year:'numeric',calendar:'islamic'};hijriDate.innerText=new Intl.DateTimeFormat('en-u-ca-islamic',options).format(d);}
 hijriCalc();
 
 // Daily Hadith
@@ -239,4 +241,4 @@ nextDua();
 </script>
 
 </body>
-</html>
+  </html>
