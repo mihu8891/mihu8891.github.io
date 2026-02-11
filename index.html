@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Islamic Tools – Quran, Zakat, Tasbeeh & Islamic Utilities</title>
-
-<meta name="description" content="Free Islamic tools including Quran Ayah with audio, Zakat Calculator, Tasbeeh Counter, Asma ul Husna, Hijri Calendar and more. Mobile friendly Islamic platform.">
-<meta name="keywords" content="Islamic Tools, Quran Ayah, Zakat Calculator, Tasbeeh Counter, Asma ul Husna, Hijri Calendar">
-
+<title>Islamic Tools – Quran, Zakat, Tasbeeh & Utilities</title>
+<meta name="description" content="Premium Islamic Tools: Quran Ayah of the Day, Zakat Calculator, Tasbeeh Counter, Asma ul Husna, Hijri Calendar, Daily Hadith & Dua. Mobile-friendly.">
+<meta name="keywords" content="Islamic Tools, Quran, Zakat, Tasbeeh, Asma ul Husna, Hijri Calendar, Hadith, Dua">
 <link rel="icon" href="favicon.ico">
 
-<!-- AdSense Main Code -->
+<!-- AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782948938206131"
 crossorigin="anonymous"></script>
 
 <style>
-body{margin:0;font-family:Arial;background:#f4f6f5;color:#222}
-header{background:#1b7f5a;color:#fff;padding:20px;text-align:center}
-nav a{color:#fff;margin:0 8px;text-decoration:none;font-weight:bold;font-size:14px}
-.container{max-width:1100px;margin:auto;padding:20px}
-.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.08);margin-bottom:25px}
-h2{color:#1b7f5a;margin-top:0}
-button{background:#1b7f5a;color:#fff;border:none;padding:8px 14px;margin-top:10px;border-radius:6px;cursor:pointer}
-input,select{width:100%;padding:8px;margin-top:5px;border-radius:6px;border:1px solid #ccc}
-.arabic{font-size:26px;direction:rtl;line-height:1.8;margin:15px 0}
-footer{background:#1b7f5a;color:#fff;text-align:center;padding:20px}
-footer a{color:#fff;margin:0 6px;text-decoration:none}
-audio{width:100%;margin-top:10px}
+body{margin:0;font-family:Arial,sans-serif;background:#f9f9f9;color:#222;}
+header{background:#1b7f5a;color:#fff;padding:20px;text-align:center;}
+header h1{margin:0;font-size:28px;}
+nav a{color:#fff;margin:0 8px;text-decoration:none;font-weight:bold;font-size:14px;}
+.container{max-width:1100px;margin:auto;padding:20px;}
+.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 15px rgba(0,0,0,0.08);margin-bottom:25px;}
+h2{color:#1b7f5a;margin-top:0;}
+button{background:#1b7f5a;color:#fff;border:none;padding:8px 14px;margin-top:10px;border-radius:6px;cursor:pointer;}
+button:hover{opacity:.9;}
+input,select{width:100%;padding:8px;margin-top:5px;border-radius:6px;border:1px solid #ccc;}
+.arabic{font-size:26px;direction:rtl;line-height:1.8;margin:15px 0;}
+footer{background:#1b7f5a;color:#fff;text-align:center;padding:20px;font-size:14px;}
+footer a{color:#fff;margin:0 6px;text-decoration:none;}
+audio{width:100%;margin-top:10px;}
+.share a{display:inline-block;margin:5px;padding:6px 12px;background:#1b7f5a;color:#fff;text-decoration:none;border-radius:6px;font-size:14px;}
 </style>
-
 </head>
 <body>
 
@@ -39,8 +38,10 @@ audio{width:100%;margin-top:10px}
 <a href="#quran">Quran</a>
 <a href="#zakat">Zakat</a>
 <a href="#tasbeeh">Tasbeeh</a>
-<a href="#asma">Asma</a>
+<a href="#asma">Asma ul Husna</a>
 <a href="#hijri">Hijri</a>
+<a href="#hadith">Hadith</a>
+<a href="#dua">Dua</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -48,19 +49,35 @@ audio{width:100%;margin-top:10px}
 
 <div class="container">
 
-<!-- QURAN -->
-<div class="card" id="quran">
-<h2>📖 Quran Ayah</h2>
-<div class="arabic" id="ayahArabic">Loading...</div>
-<div id="ayahEnglish"></div>
-<div id="ayahUrdu"></div>
-<audio id="ayahAudio" controls></audio>
-<button onclick="loadAyah()">New Ayah</button>
-<button onclick="copyAyah()">Copy</button>
-
-<!-- Ad -->
+<!-- Top Ad -->
 <ins class="adsbygoogle"
 style="display:block"
+data-ad-client="ca-pub-6782948938206131"
+data-ad-slot="8574784426"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<!-- Quran -->
+<div class="card" id="quran">
+<h2>📖 Quran Ayah of the Day</h2>
+<div class="arabic" id="ayahArabic">Loading...</div>
+<div id="ayahEnglish" style="margin-top:8px;font-style:italic;"></div>
+<div id="ayahUrdu" style="margin-top:5px;font-style:italic;"></div>
+<div id="ayahRef" style="font-size:14px;color:#555;"></div>
+<audio id="ayahAudio" controls></audio>
+<div style="margin-top:10px;">
+<button onclick="loadAyah()">New Ayah</button>
+<button onclick="copyAyah()">Copy</button>
+<div class="share">
+<a id="wa" target="_blank">WhatsApp</a>
+<a id="fb" target="_blank">Facebook</a>
+</div>
+</div>
+
+<!-- In-content Ad -->
+<ins class="adsbygoogle"
+style="display:block;margin-top:15px"
 data-ad-client="ca-pub-6782948938206131"
 data-ad-slot="4475757317"
 data-ad-format="auto"
@@ -68,10 +85,10 @@ data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
-<!-- ZAKAT -->
+<!-- Zakat -->
 <div class="card" id="zakat">
 <h2>💰 Zakat Calculator</h2>
-<input type="number" id="cash" placeholder="Cash">
+<input type="number" id="cash" placeholder="Cash / Bank">
 <input type="number" id="gold" placeholder="Gold Value">
 <input type="number" id="silver" placeholder="Silver Value">
 <input type="number" id="business" placeholder="Business Assets">
@@ -80,7 +97,7 @@ data-full-width-responsive="true"></ins>
 <h3 id="zakatResult"></h3>
 </div>
 
-<!-- TASBEEH -->
+<!-- Tasbeeh -->
 <div class="card" id="tasbeeh">
 <h2>📿 Tasbeeh Counter</h2>
 <h1 id="count">0</h1>
@@ -88,119 +105,141 @@ data-full-width-responsive="true"></ins>
 <button onclick="reset()">Reset</button>
 </div>
 
-<!-- ASMA UL HUSNA -->
+<!-- Asma ul Husna -->
 <div class="card" id="asma">
 <h2>🕊 Asma ul Husna</h2>
 <select id="asmaSelect"></select>
 <div class="arabic" id="asmaArabic"></div>
 <div id="asmaMeaning"></div>
 <button onclick="copyAsma()">Copy</button>
+<button onclick="nextAsma()">Next</button>
 </div>
 
-<!-- HIJRI -->
+<!-- Hijri -->
 <div class="card" id="hijri">
 <h2>📅 Hijri Date</h2>
 <h3 id="hijriDate"></h3>
 </div>
 
-<!-- ABOUT -->
-<div class="card" id="about">
-<h2>About Us</h2>
-<p>Islamic Tools is a free platform providing essential Islamic utilities including Quran guidance, Zakat calculator, Tasbeeh counter and more for Muslims worldwide.</p>
+<!-- Daily Hadith -->
+<div class="card" id="hadith">
+<h2>📜 Daily Hadith</h2>
+<div class="arabic" id="hadithArabic"></div>
+<div id="hadithUrdu"></div>
+<button onclick="nextHadith()">Next</button>
+<button onclick="copyHadith()">Copy</button>
 </div>
 
-<!-- CONTACT -->
+<!-- Daily Dua -->
+<div class="card" id="dua">
+<h2>🙏 Daily Dua</h2>
+<div class="arabic" id="duaArabic"></div>
+<div id="duaUrdu"></div>
+<button onclick="nextDua()">Next</button>
+<button onclick="copyDua()">Copy</button>
+</div>
+
+<!-- About -->
+<div class="card" id="about">
+<h2>About Us</h2>
+<p>Islamic Tools provides Muslims worldwide with reliable and free digital tools for Quran guidance, Zakat calculation, Tasbeeh counting, Asma ul Husna, Hijri Calendar, Daily Hadith, and Daily Dua. Our goal is to make religious practice easy and accessible.</p>
+</div>
+
+<!-- Contact -->
 <div class="card" id="contact">
 <h2>Contact Us</h2>
 <p>Email: contact@yourdomain.com</p>
 </div>
 
-<!-- PRIVACY -->
+<!-- Privacy -->
 <div class="card">
 <h2>Privacy Policy</h2>
-<p>We respect user privacy. This website does not collect personal data. Third-party services like Google AdSense may use cookies for personalized ads.</p>
+<p>We do not store personal data. Tools operate without collecting your information. Third-party services like Google AdSense may use cookies for ads. Your privacy is our priority.</p>
 </div>
 
-<!-- TERMS -->
+<!-- Terms -->
 <div class="card">
 <h2>Terms & Conditions</h2>
-<p>All tools are provided for educational and informational purposes. Users are responsible for how they use the information provided on this website.</p>
+<p>All tools are for educational and religious purposes. Users are responsible for their actions. Islamic Tools does not provide legal or financial advice. Use at your own discretion.</p>
 </div>
 
 </div>
 
 <footer>
-© 2026 Islamic Tools |
+© 2026 Islamic Tools | 
 <a href="#about">About</a> |
 <a href="#contact">Contact</a>
+</footer>
 
 <!-- Footer Ad -->
 <ins class="adsbygoogle"
-style="display:block"
+style="display:block;margin-top:15px"
 data-ad-client="ca-pub-6782948938206131"
 data-ad-slot="3151803443"
 data-ad-format="auto"
 data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-</footer>
-
 <script>
-
-// Quran Ayah
+// Quran Ayah of the Day
+function todayAyah(){let d=new Date();return (d.getDate()+d.getMonth()*30+d.getFullYear()*365)%6236+1;}
+let ayahText="";
 async function loadAyah(){
-let r=await fetch("https://api.alquran.cloud/v1/ayah/"+(Math.floor(Math.random()*6236)+1));
-let d=await r.json();
-document.getElementById("ayahArabic").innerText=d.data.text;
-document.getElementById("ayahEnglish").innerText=d.data.edition? "": "";
-document.getElementById("ayahAudio").src=d.data.audio;
+try{
+const ayah=todayAyah();
+const ar=await fetch(`https://api.alquran.cloud/v1/ayah/${ayah}`).then(r=>r.json());
+const en=await fetch(`https://api.alquran.cloud/v1/ayah/${ayah}/en.asad`).then(r=>r.json());
+const ur=await fetch(`https://api.alquran.cloud/v1/ayah/${ayah}/ur.jalandhry`).then(r=>r.json());
+ayahText=`${ar.data.text}\n${en.data.text}\n${ur.data.text}`;
+document.getElementById("ayahArabic").innerText=ar.data.text;
+document.getElementById("ayahEnglish").innerText=en.data.text;
+document.getElementById("ayahUrdu").innerText=ur.data.text;
+document.getElementById("ayahRef").innerText=`Surah ${ar.data.surah.englishName} | Ayah ${ar.data.numberInSurah}`;
+document.getElementById("ayahAudio").src=`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${ayah}.mp3`;
+document.getElementById("wa").href=`https://wa.me/?text=${encodeURIComponent(ayahText)}`;
+document.getElementById("fb").href=`https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(ayahText)}`;
+}catch(e){document.getElementById("ayahArabic").innerText="Error loading Ayah";}
 }
 loadAyah();
-
-function copyAyah(){
-navigator.clipboard.writeText(document.getElementById("ayahArabic").innerText);
-alert("Copied");
-}
+function copyAyah(){navigator.clipboard.writeText(ayahText);alert("Copied!");}
 
 // Zakat
 function calculateZakat(){
 let total=(+cash.value)+(+gold.value)+(+silver.value)+(+business.value)-(+debt.value);
-zakatResult.innerText=total>0?"Zakat: Rs "+(total*0.025).toFixed(2):"No Zakat Due";
+zakatResult.innerText=total>0?`Zakat: Rs ${(total*0.025).toFixed(2)}`:'No Zakat Due';
 }
 
 // Tasbeeh
-let c=0;
-function inc(){count.innerText=++c;}
-function reset(){c=0;count.innerText=0;}
+let c=0;function inc(){count.innerText=++c;}function reset(){c=0;count.innerText=0;}
 
-// Asma
-const asma=[
-["ٱلرَّحْمَٰنُ","The Most Merciful"],
-["ٱلرَّحِيمُ","The Most Compassionate"],
-["ٱلْمَلِكُ","The King"],
-["ٱلْقُدُّوسُ","The Pure"],
-["ٱلسَّلَامُ","The Peace"]
-];
-asma.forEach((a,i)=>{
-let o=document.createElement("option");
-o.value=i;o.text=a[0];
-asmaSelect.appendChild(o);
-});
-asmaSelect.onchange=function(){
-asmaArabic.innerText=asma[this.value][0];
-asmaMeaning.innerText=asma[this.value][1];
-};
+// Asma ul Husna
+const asma=[["ٱلرَّحْمَٰنُ","The Most Merciful"],["ٱلرَّحِيمُ","The Most Compassionate"],["ٱلْمَلِكُ","The King"],["ٱلْقُدُّوسُ","The Pure"],["ٱلسَّلَامُ","The Peace"]];
+let aIndex=0;
+asma.forEach((a,i)=>{let o=document.createElement("option");o.value=i;o.text=a[0];asmaSelect.appendChild(o);});
+asmaSelect.onchange=function(){aIndex=this.value;asmaArabic.innerText=asma[aIndex][0];asmaMeaning.innerText=asma[aIndex][1];};
 asmaSelect.onchange();
+function nextAsma(){aIndex=(parseInt(aIndex)+1)%asma.length;asmaSelect.value=aIndex;asmaArabic.innerText=asma[aIndex][0];asmaMeaning.innerText=asma[aIndex][1];}
+function copyAsma(){navigator.clipboard.writeText(asma[aIndex][0]+" - "+asma[aIndex][1]);alert("Copied!");}
 
-// Hijri Date
-const months=["Muharram","Safar","Rabi al-Awwal","Rabi al-Thani","Jumada al-Awwal","Jumada al-Thani","Rajab","Sha'ban","Ramadan","Shawwal","Dhul Qadah","Dhul Hijjah"];
-let today=new Date();
-let hijriDay=today.getDate();
-let hijriMonth=months[today.getMonth()];
-let hijriYear=1447;
-hijriDate.innerText=hijriDay+" "+hijriMonth+" "+hijriYear+" AH";
+// Hijri
+function hijriCalc(){let d=new Date();let f=new Intl.DateTimeFormat('en-TN-u-ca-islamic',{day:'numeric',month:'long',year:'numeric'});hijriDate.innerText=f.format(d);}
+hijriCalc();
+
+// Daily Hadith
+const hadiths=[["إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ","اعمال کی نیت سے ہیں"],["الْكَلِمَةُ الطَّيِّبَةُ","اچھی بات کی اہمیت"]];
+let hIndex=0;
+function nextHadith(){hIndex=(hIndex+1)%hadiths.length;hadithArabic.innerText=hadiths[hIndex][0];hadithUrdu.innerText=hadiths[hIndex][1];}
+function copyHadith(){navigator.clipboard.writeText(hadiths[hIndex][0]+" - "+hadiths[hIndex][1]);alert("Copied!");}
+nextHadith();
+
+// Daily Dua
+const duas=[["رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً","ہمارے رب! دنیا میں ہمیں بھلائی عطا فرما"],["رَبَّنَا اغْفِرْ لَنَا","ہمارے رب ہمیں معاف فرما"]];
+let dIndex=0;
+function nextDua(){dIndex=(dIndex+1)%duas.length;duaArabic.innerText=duas[dIndex][0];duaUrdu.innerText=duas[dIndex][1];}
+function copyDua(){navigator.clipboard.writeText(duas[dIndex][0]+" - "+duas[dIndex][1]);alert("Copied!");}
+nextDua();
 
 </script>
 
 </body>
-</html>
+  </html>
